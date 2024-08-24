@@ -1,0 +1,62 @@
+/*
+N = 11 
+M = 4
+A1[] = {2, 1, 2, 5, 7, 1, 9, 3, 6, 8, 8}
+A2[] = {2, 1, 8, 3}
+Output: 
+2 2 1 1 8 8 3 5 6 7 9
+Explanation: Array elements of A1[] are
+sorted according to A2[]. So 2 comes first
+then 1 comes, then comes 8, then finally 3
+comes, now we append remaining elements in
+sorted order.*/
+
+class Solution{
+    // A1[] : the input array-1
+    // N : size of the array A1[]
+    // A2[] : the input array-2
+    // M : size of the array A2[]
+    
+    //Function to sort an array according to the other array.
+    public static int[] sortA1ByA2(int A1[], int N, int A2[], int M)
+    {
+        //Your code here
+        HashMap<Integer,Integer> map=new HashMap<>();
+        for(int i:A1)
+        {
+            map.put(i,map.getOrDefault(i,0)+1);
+        }
+
+        List<Integer> result=new ArrayList<>();
+        for(int num:A2)
+        {
+            if(map.containsKey(num))
+            {
+            int count=map.get(num);
+            for(int i=0;i<count;i++)
+            {
+                result.add(num);
+            }
+                map.remove(num);
+            }
+            
+        }
+        
+        List<Integer> remaining =new ArrayList<Integer>(map.keySet());
+        Collections.sort(remaining);
+        for(int num:remaining)
+        {
+            int count=map.get(num);
+            for(int i=0;i<count;i++)
+            {
+                result.add(num);
+            }
+            
+        }
+        for (int i = 0; i < result.size(); i++) {
+            A1[i] = result.get(i);
+        }
+        return A1;
+        
+    }
+}

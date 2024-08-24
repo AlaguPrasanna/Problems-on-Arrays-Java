@@ -1,0 +1,17 @@
+public class ProblemsOnArrays {
+
+    public static void main(String[] args) {
+        int[] arr = {5,4,3,2,1};
+        System.out.println("Befor Reversal: "+ Arrays.toString(arr));
+        int n=arr.length;
+        int start=0,end=n-1;
+        while(start<=end)
+        {
+            int temp=arr[start];
+            arr[start]=arr[end];
+            arr[end]=temp;
+            start++;end--;
+        }
+
+        System.out.println("After Reversal: "+ Arrays.toString(arr));
+}}

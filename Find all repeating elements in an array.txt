@@ -1,0 +1,47 @@
+/*
+Example 1:
+Input: 
+Arr[] = [1,1,2,3,4,4,5,2]
+Output:
+ 1,2,4
+Explanation:
+ 1,2 and 4 are the elements which are occurring more than once.*/
+
+//without sorting
+public class ProblemsOnArrays {
+
+    public static void main(String[] args) {
+        int[] arr = {1,1,2,3,4,4,5,2};
+        int n=arr.length;
+        ArrayList<Integer>list=new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(arr[i]==arr[j])
+                {
+                    list.add(arr[j]);
+                }
+            }
+        }
+        System.out.println(list);
+
+    }}
+
+//sorting
+
+public class ProblemsOnArrays {
+
+    public static void main(String[] args) {
+        int[] arr = {1,1,2,3,4,4,5,2};
+        int n=arr.length;
+        Arrays.sort(arr);
+        for(int j=0;j<n-1;j++)
+        {
+            if(arr[j]==arr[j+1])
+            {
+                System.out.print(arr[j]+" ");
+            }
+        }
+    }}
+

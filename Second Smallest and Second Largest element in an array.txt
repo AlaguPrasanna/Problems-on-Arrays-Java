@@ -1,0 +1,34 @@
+public class ProblemsOnArrays {
+
+    public static void main(String[] args) {
+        int[] arr = {8,10,5,7,9};
+        int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+        int prevMin=Integer.MAX_VALUE,prevMax=Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++)
+        {
+            if (arr[i]<min)
+            {
+                prevMin=min;
+                min=arr[i];
+            }
+            else if(arr[i]>min && arr[i]<prevMin)
+            {
+                prevMin=arr[i];
+            }
+        }
+        for(int i=0;i<arr.length;i++)
+        {
+            if (arr[i]>max)
+            {
+                prevMax=max;
+                max=arr[i];
+            }
+            else if(arr[i]<max && arr[i]>prevMax)
+            {
+                prevMax=arr[i];
+            }
+        }
+        System.out.println("Second smallest element: "+ prevMin );
+        System.out.println("Second largest element: "+  prevMax);
+}
+}

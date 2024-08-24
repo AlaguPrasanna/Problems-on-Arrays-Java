@@ -1,0 +1,31 @@
+//Binary Search
+public class ProblemsOnArrays {
+
+    public static void main(String[] args) {
+        int[] arr={1,2,3,4,5};
+        int n=arr.length;
+        int start=0,end=n-1,searchElement=3,count=0;
+        while(start<=end)
+        {
+            int mid=(start+end)/2;
+            if(arr[mid]==searchElement)
+            {
+                System.out.println("Element found at: "+ (mid+1));
+                count=1;
+                break;
+            }
+            else if(arr[mid]>searchElement)
+            {
+                end=mid-1;
+            }
+            else
+            {
+                start=mid+1;
+            }
+        }
+        if(count==0)
+        {
+            System.out.println("Element not found");
+        }
+    }
+    }
